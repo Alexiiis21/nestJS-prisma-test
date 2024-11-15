@@ -39,4 +39,20 @@ export class TaskService {
             where: { id }, // Busca la tarea con el ID
         });
     }
+
+    // Marcar como completada una tarea
+    async markTaskAsComplete(id:number): Promise<Task>{
+        return this.prisma.task.update({
+           where: {id}, // Busca la tarea con el ID
+            data: { completed: true }, // Marca la tarea como completada
+        });
+    }
+
+    // Marcar como incompleta una tarea
+    async markTaskAsIncomplete(id:number): Promise<Task>{
+        return this.prisma.task.update({
+            where: {id}, // Busca la tarea con el ID
+            data: {completed : false},
+        });
+    }
 }

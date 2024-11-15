@@ -17,5 +17,6 @@ datasource db {
 model Task {
   id          Int      @id @default(autoincrement())
   title       String
-  description String?  // ? means optional
+  description String?
+  completed   Boolean  @default(false)
 }

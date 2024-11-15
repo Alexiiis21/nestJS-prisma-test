@@ -46,4 +46,22 @@ export class TaskController {
             throw new NotFoundException('Task does not exist')
         }
     }
+
+    @Put(':id/complete')
+    async markTaskAsComplete(@Param('id') id: string) {
+        try{
+            return await this.taskService.markTaskAsComplete(Number(id));
+        } catch(error){
+            throw new NotFoundException('Task does not exist')
+        }
+    }
+
+    @Put(':id/incomplete')
+    async markTaskAsIncomplete(@Param('id') id: string) {     
+        try{
+            return await this.taskService.markTaskAsIncomplete(Number(id));
+        } catch(error){
+            throw new NotFoundException('Task does not exist')
+        }
+    }
 }
