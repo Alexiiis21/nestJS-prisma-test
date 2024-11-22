@@ -18,5 +18,7 @@ model Task {
   id          Int      @id @default(autoincrement())
   title       String
   description String?
+  date DateTime? 
+  priority    String      
   completed   Boolean  @default(false)
 }
